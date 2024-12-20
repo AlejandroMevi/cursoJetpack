@@ -10,7 +10,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.mycoursecompose.ui.theme.MyCourseComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,18 +26,27 @@ class MainActivity : ComponentActivity() {
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
+                    MySuperText("Alex mevis")
                 }
             }
         }
     }
 }
 
+@Preview(
+    name = "PREVIEW 1 GUAY", heightDp = 50, widthDp = 200, showBackground = true,
+    showSystemUi = true, device = Devices.NEXUS_5
+)
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun MyTestSuperText() {
+    MySuperText("Alex Mevi")
+}
+
+@Composable
+fun MySuperText(name: String) {
+    Text(text = "Hola $name", modifier = Modifier
+        .fillMaxSize()
+        .padding(20.dp))
 }
 
 @Preview(showBackground = true)
