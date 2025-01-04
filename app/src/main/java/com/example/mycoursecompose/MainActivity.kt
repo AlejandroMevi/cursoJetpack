@@ -12,15 +12,23 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -38,9 +46,68 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MyRow()
+                    MyStateExample()
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun MyStateExample(){
+
+    var counter by rememberSaveable { mutableStateOf(0) }
+
+    Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally) {
+        Button(onClick = {counter += 1}) {
+            Text(text = "Pulsar")
+        }
+        Text(text = "He sido pulsado $counter veces")
+
+    }
+}
+
+@Composable
+fun MyComplexLayotu(){
+    Column(Modifier.fillMaxSize()) {
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .background(Color.Cyan),
+            contentAlignment = Alignment.Center){
+            Text(text = "Ejemplo 1")
+        }
+        Spacer(modifier = Modifier.height(30.dp))
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)){
+            Box(
+                Modifier
+                    .weight(1f)
+                    .fillMaxHeight()
+                    .background(Color.Red),
+                contentAlignment = Alignment.Center){
+                Text(text = "Ejemplo 2")
+            }
+            Box(
+                Modifier
+                    .weight(1f)
+                    .fillMaxHeight()
+                    .background(Color.Green),
+                contentAlignment = Alignment.Center){
+                Text(text = "Hola soy Alejandro")
+            }
+        }
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .background(Color.Magenta),
+            contentAlignment = Alignment.BottomCenter){
+            Text(text = "Ejemplo 4")
         }
     }
 }
@@ -54,7 +121,9 @@ fun MyRow() {
         Text("Ejemplo1")
     }
      */
-    Row(modifier = Modifier.fillMaxSize().horizontalScroll(rememberScrollState())) {
+    Row(modifier = Modifier
+        .fillMaxSize()
+        .horizontalScroll(rememberScrollState())) {
         Text("Ejemplo1", modifier = Modifier.width(100.dp))
         Text("Ejemplo1", modifier = Modifier.width(100.dp))
         Text("Ejemplo1", modifier = Modifier.width(100.dp))
@@ -166,10 +235,11 @@ fun MyBox() {
 @Composable
 fun GreetingPreview() {
     MyCourseComposeTheme {
-        MyBox()
+        MyStateExample()
     }
 }
 
+/*
 @Preview(showBackground = true, name = "Elements create")
 @Composable
 fun MyColumPreview() {
@@ -177,3 +247,4 @@ fun MyColumPreview() {
             MyRow()
     }
 }
+ */

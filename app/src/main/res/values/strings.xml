@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MyCourseCompose</string>
+    <string name="title_activity_jetpack_components_catalog_theme">JetpackComponentsCatalogTheme
+    </string>
 </resources>
