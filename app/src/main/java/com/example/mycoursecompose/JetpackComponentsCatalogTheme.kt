@@ -10,6 +10,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -89,8 +90,34 @@ class JetpackComponentsCatalogTheme : ComponentActivity() {
                         mutableStateOf("Alex")
                     }
                     Column {
-                        MyDropDownMenu()
+                        var show by remember { mutableStateOf(false) }
+                        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                            Button(onClick = { show = true }) {
+                                Text(text = "Mostrar dialogo")
+                            }
+                            MyConfirmationDialog(
+                                show = show,
+                                onDismiis = { show = false })
+                        }
                     }
+
+                    /**
+                     * llamada de MyDialog en clase Dialogs
+                     * */
+                    /*
+                    Column {
+                        var show by remember { mutableStateOf(false) }
+                        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                            Button(onClick = { show = true }) {
+                                Text(text = "Mostrar dialogo")
+                            }
+                            MyDialog(
+                                show = show,
+                                onDismiis = { show = false },
+                                onConfirm = { Log.i("alex", "clic") })
+                        }
+                    }
+                     */
                 }
             }
         }
@@ -104,6 +131,7 @@ fun GreetingPreview2() {
         MyDropDownMenu()
     }
 }
+
 
 @Composable
 fun MyDropDownMenu() {
@@ -175,19 +203,19 @@ fun MyCard() {
 fun MyRadioButtonList(name: String, onItemenSelected: (String) -> Unit) {
 
     Column(Modifier.fillMaxWidth()) {
-        Row() {
+        Row(Modifier.padding(6.dp), verticalAlignment = Alignment.CenterVertically) {
             RadioButton(selected = name == "Alex", onClick = { onItemenSelected("Alex") })
             Text(text = "Alex")
         }
-        Row() {
+        Row(Modifier.padding(6.dp), verticalAlignment = Alignment.CenterVertically) {
             RadioButton(selected = name == "Lalo", onClick = { onItemenSelected("Lalo") })
             Text(text = "Lalo")
         }
-        Row() {
+        Row(Modifier.padding(6.dp), verticalAlignment = Alignment.CenterVertically) {
             RadioButton(selected = name == "Memo", onClick = { onItemenSelected("Memo") })
             Text(text = "Memo")
         }
-        Row() {
+        Row(Modifier.padding(6.dp), verticalAlignment = Alignment.CenterVertically) {
             RadioButton(selected = name == "Diana", onClick = { onItemenSelected("Diana") })
             Text(text = "Diana")
         }

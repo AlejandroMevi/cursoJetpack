@@ -13,10 +13,10 @@
         android:theme="@style/Theme.MyCourseCompose"
         tools:targetApi="31">
         <activity
-            android:name=".JetpackComponentsCatalogTheme"
+            android:name=".JetpackComposeInstagram"
             android:exported="true"
-            android:label="@string/title_activity_jetpack_components_catalog_theme"
-            android:theme="@style/Theme.MyCourseCompose" >
+            android:label="@string/title_activity_jetpack_compose_instagram"
+            android:theme="@style/Theme.MyCourseCompose">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,12 +24,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".JetpackComponentsCatalogTheme"
+            android:exported="true"
+            android:label="@string/title_activity_jetpack_components_catalog_theme"
+            android:theme="@style/Theme.MyCourseCompose" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.MyCourseCompose">
-
-        </activity>
+            android:theme="@style/Theme.MyCourseCompose" />
     </application>
 
 </manifest>
