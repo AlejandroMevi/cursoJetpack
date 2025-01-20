@@ -13,9 +13,9 @@
         android:theme="@style/Theme.MyCourseCompose"
         tools:targetApi="31">
         <activity
-            android:name=".TwitterExample"
+            android:name=".Home"
             android:exported="true"
-            android:label="@string/title_activity_twitter_example"
+            android:label="@string/title_activity_home"
             android:theme="@style/Theme.MyCourseCompose">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,11 +24,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".TwitterExample"
+            android:exported="true"
+            android:label="@string/title_activity_twitter_example"
+            android:theme="@style/Theme.MyCourseCompose" />
+        <activity
             android:name=".JetpackComposeInstagram"
             android:exported="true"
             android:label="@string/title_activity_jetpack_compose_instagram"
-            android:theme="@style/Theme.MyCourseCompose">
-        </activity>
+            android:theme="@style/Theme.MyCourseCompose" />
         <activity
             android:name=".JetpackComponentsCatalogTheme"
             android:exported="true"

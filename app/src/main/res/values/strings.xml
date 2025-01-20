@@ -4,4 +4,5 @@
     </string>
     <string name="title_activity_jetpack_compose_instagram">JetpackComposeInstagram</string>
     <string name="title_activity_twitter_example">TwitterExample</string>
+    <string name="title_activity_home">Home</string>
 </resources>
