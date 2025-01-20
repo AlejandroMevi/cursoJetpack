@@ -3,4 +3,5 @@
     <string name="title_activity_jetpack_components_catalog_theme">JetpackComponentsCatalogTheme
     </string>
     <string name="title_activity_jetpack_compose_instagram">JetpackComposeInstagram</string>
+    <string name="title_activity_twitter_example">TwitterExample</string>
 </resources>

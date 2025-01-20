@@ -44,6 +44,7 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Surface
@@ -52,6 +53,7 @@ import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TriStateCheckbox
 import androidx.compose.runtime.Composable
@@ -439,9 +441,10 @@ fun MyTextFieldOutlined() {
     OutlinedTextField(
         value = myText, onValueChange = { myText = it }, Modifier.padding(24.dp),
         label = { Text(text = "Holita") },
-        colors = TextFieldDefaults.outlinedTextFieldColors(
+        colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = Color.Magenta,
-            unfocusedBorderColor = Color.Blue
+            unfocusedBorderColor = Color.Blue,
+            cursorColor = Color.Magenta
         )
     )
 }

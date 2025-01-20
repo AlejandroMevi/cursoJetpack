@@ -204,9 +204,10 @@ fun Password(password: String, onTextChanged: (String) -> Unit) {
         maxLines = 1,
         singleLine = true,
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-        colors = TextFieldDefaults.textFieldColors(
+        colors = TextFieldDefaults.colors(
             disabledTextColor = Color(0xFFB2B2B2),
-            containerColor = Color(0xFFFAFAFA), focusedIndicatorColor = Color.Transparent,
+            disabledContainerColor = Color(0xFFFAFAFA),
+            focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent
         ),
         trailingIcon = {
@@ -239,9 +240,9 @@ fun Email(email: String, onTextChanged: (String) -> Unit) {
         singleLine = true,
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
 
-        colors = TextFieldDefaults.textFieldColors(
+        colors =  TextFieldDefaults.colors(
             disabledTextColor = Color(0xFFB2B2B2),
-            containerColor = Color(0xFFFAFAFA), focusedIndicatorColor = Color.Transparent,
+            disabledContainerColor = Color(0xFFFAFAFA), focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent
         )
     )

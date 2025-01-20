@@ -1,4 +1,4 @@
- plugins {
+plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
 }
@@ -71,4 +71,12 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    // Material Design 3
+    implementation(libs.material3)
+
+    // Compose dependencies
+    implementation(libs.ui)
+    implementation(libs.ui.tooling.preview)
+    debugImplementation(libs.ui.tooling)
+    implementation(libs.androidx.foundation)
 }
