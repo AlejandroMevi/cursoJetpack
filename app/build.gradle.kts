@@ -71,6 +71,12 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Para Compose
+    implementation(libs.androidx.runtime.livedata)
+    // Para LiveData
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+
     // Material Design 3
     implementation(libs.material3)
 

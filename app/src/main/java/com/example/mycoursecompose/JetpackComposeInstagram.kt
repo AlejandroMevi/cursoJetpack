@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.mycoursecompose.login.LoginScreen
+import com.example.mycoursecompose.login.LoginViewModel
 import com.example.mycoursecompose.ui.theme.MyCourseComposeTheme
 
 class JetpackComposeInstagram : ComponentActivity() {
@@ -20,7 +22,7 @@ class JetpackComposeInstagram : ComponentActivity() {
         setContent {
             MyCourseComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    LoginScreen(modifier = Modifier.padding(innerPadding))
+                    LoginScreen(LoginViewModel(), modifier = Modifier.padding(innerPadding))
                 }
             }
         }
