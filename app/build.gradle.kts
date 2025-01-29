@@ -86,4 +86,9 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     implementation(libs.androidx.foundation)
     implementation(libs.androidx.navigation.compose)
+
+    //retrofit
+    implementation(libs.gson)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 }

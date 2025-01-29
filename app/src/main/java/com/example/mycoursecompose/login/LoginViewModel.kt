@@ -1,11 +1,18 @@
 package com.example.mycoursecompose.login
 
+import android.util.Log
 import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.mycoursecompose.login.data.network.LoginRequest
+import com.example.mycoursecompose.login.domain.LoginUseCase
+import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
+
+    var loginUseCase = LoginUseCase()
 
     private val _email = MutableLiveData<String>()
     val email: LiveData<String> = _email
@@ -14,7 +21,10 @@ class LoginViewModel : ViewModel() {
     val password: LiveData<String> = _password
 
     private val _isLoginEnable = MutableLiveData<Boolean>()
-    val isLoginEnable:LiveData<Boolean> = _isLoginEnable
+    val isLoginEnable: LiveData<Boolean> = _isLoginEnable
+
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
 
     fun onLoginChanged(email: String, password: String) {
         _email.value = email
@@ -24,4 +34,19 @@ class LoginViewModel : ViewModel() {
 
     fun enableLogin(email: String, password: String) =
         Patterns.EMAIL_ADDRESS.matcher(email).matches() && password.length > 6
+
+    fun onLoginSelected() {
+        viewModelScope.launch {
+            _isLoading.value = true
+            val request = LoginRequest(email = email.value ?: "", password = password.value ?: "")
+            val result = loginUseCase(request)
+            if (result != null) {
+                Log.i("Alex", "Login exitoso: ${result.token}")
+            } else {
+                Log.e("Alex", "Error en login: respuesta nula")
+            }
+            _isLoading.value = false
+
+        }
+    }
 }
