@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.dagger.hilt.android") // Hilt plugin
+    kotlin("kapt")
 }
 
 android {
@@ -91,4 +93,7 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
+    // Inyeccion de dependecias
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 }

@@ -8,11 +8,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mycoursecompose.login.data.network.LoginRequest
 import com.example.mycoursecompose.login.domain.LoginUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class LoginViewModel : ViewModel() {
+@HiltViewModel
+class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase) : ViewModel() {
 
-    var loginUseCase = LoginUseCase()
+    //var loginUseCase = LoginUseCase()
 
     private val _email = MutableLiveData<String>()
     val email: LiveData<String> = _email
