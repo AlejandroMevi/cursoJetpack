@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("com.google.dagger.hilt.android") // Hilt plugin
     kotlin("kapt")
+    alias(libs.plugins.jetbrainsKotlinSerialization)
+    alias(libs.plugins.kotlin.parcelize)
 }
 
 android {
@@ -73,6 +75,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.kotlinx.serialization.json.v162)
 
     // Para Compose
     implementation(libs.androidx.runtime.livedata)
